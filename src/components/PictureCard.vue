@@ -8,7 +8,9 @@
         <div class="card__cost">{{ content.cost | formatCost }}</div>
       </div>
       <div v-if="pictureIsSold" class="card__sold-text">Продана на аукционе</div>
-      <button-el v-else @click="$wip" class="card__button">Купить</button-el>
+      <button-el v-else @click="$emit('sendRequest', content.id)" class="card__button">
+        Купить
+      </button-el>
     </div>
   </div>
 </template>

@@ -2,12 +2,19 @@
   <main class="content">
     <h1>Картины эпохи Возрождения</h1>
     <div class="picture-list">
-      <picture-card v-for="card in cards" :key="card.id" :content="card" class="picture-card" />
+      <picture-card
+        v-for="card in cards"
+        :key="card.id"
+        :content="card"
+        class="picture-card"
+        @sendRequest="sendRequest"
+      />
     </div>
   </main>
 </template>
 
 <script>
+import axios from 'axios';
 import PictureCard from './PictureCard';
 
 export default {
@@ -45,6 +52,12 @@ export default {
   },
   components: {
     PictureCard,
+  },
+  methods: {
+    sendRequest(id) {
+      const testUrl = 'https://jsonplaceholder.typicode.com/posts';
+      axios(`${testUrl}/${id}`);
+    },
   },
 };
 </script>
