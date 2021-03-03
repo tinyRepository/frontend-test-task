@@ -9,6 +9,8 @@ Vue.component('button-el', ButtonEl);
 
 Vue.config.productionTip = false;
 
+Vue.prototype.$wip = () => alert('Функционал в разработке');
+
 new Vue({
   render: h => h(App),
 }).$mount('#app');

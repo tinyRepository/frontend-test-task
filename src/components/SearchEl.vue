@@ -1,8 +1,8 @@
 <template>
-  <div class="search">
+  <form class="search" novalidate @submit.stop.prevent>
     <input type="text" placeholder="Поиск по названию картины" class="search__input" />
-    <button-el>Найти</button-el>
-  </div>
+    <button-el @click="$wip" class="search__button">Найти</button-el>
+  </form>
 </template>
 
 <style lang="scss">
@@ -12,10 +12,14 @@
   height: 48px;
   width: 100%;
 
+  &__button {
+    width: 122px;
+  }
+
   &__input {
     outline: none;
     border-radius: 0;
-    padding: 13px 16px;
+    padding: 15px;
     border: 1px solid $gray-color1;
     border-right: 0;
     background: transparent;

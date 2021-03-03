@@ -1,6 +1,8 @@
 <template>
   <ul class="menu-list">
-    <li class="menu-list__list-item" v-for="(item, index) in menuItems" :key="index">{{ item }}</li>
+    <li class="menu-list__list-item" v-for="(item, index) in menuItems" :key="index" @click="$wip">
+      {{ item }}
+    </li>
   </ul>
 </template>
 

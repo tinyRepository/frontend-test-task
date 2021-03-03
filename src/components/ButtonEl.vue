@@ -17,11 +17,11 @@ export default {
 <style lang="scss" scoped>
 .button {
   @include removeBtnDefaults;
+  @include font(14px, $white-color, bold);
   min-width: 118px;
   height: 48px;
   background: $brown-color1;
   text-align: center;
-  color: $white-color;
   transition: background $transition;
 
   &[disabled] {
