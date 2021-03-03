@@ -1,6 +1,8 @@
 @import 'fonts';
 
 html {
+  background-color: $pink-color;
+  min-width: 1200px;
   min-height: 100%;
   height: 100%;
   overflow-y: auto;
@@ -16,4 +18,42 @@ html *:after {
 
 * {
   font-family: 'Merriweather', Helvetica, Arial, sans-serif;
+}
+
+h1,
+.h1 {
+  font-weight: bold;
+  font-size: 24px;
+  line-height: 36px;
+}
+
+h2,
+.h2 {
+  font-size: 18px;
+  line-height: 27px;
+}
+
+h3,
+.h3 {
+  font-weight: bold;
+  font-size: 14px;
+  line-height: 21px;
+}
+h4,
+.h4 {
+  font-weight: bold;
+  font-size: 14px;
+  line-height: 21px;
+}
+
+h5,
+.h5 {
+  font-size: 14px;
+  line-height: 21px;
+}
+h6,
+.h6 {
+  font-weight: 300;
+  font-size: 14px;
+  line-height: 21px;
 }

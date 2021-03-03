@@ -4,3 +4,13 @@
   font-size: $size;
   font-weight: $weight;
 }
+
+@mixin removeBtnDefaults() {
+  border: none;
+  outline: none;
+  padding: 0;
+  text-align: left;
+  background: transparent;
+  cursor: pointer;
+  user-select: none;
+}
