@@ -8,26 +8,57 @@
         <div class="card__cost">{{ content.cost | formatCost }}</div>
       </div>
       <div v-if="pictureIsSold" class="card__sold-text">Продана на аукционе</div>
-      <button-el v-else @click="$emit('sendRequest', content.id)" class="card__button">
-        Купить
+      <button-el
+        v-else
+        :loading="loading"
+        :inCart="inCart"
+        @click="addToCart(content.id)"
+        class="card__button"
+      >
+        <template v-if="inCart">
+          <check-icon class="button__check-icon" />
+          В корзине
+        </template>
+
+        <template v-else>
+          Купить
+        </template>
       </button-el>
     </div>
   </div>
 </template>
 
 <script>
+import { mapActions } from 'vuex';
 import ButtonEl from './ButtonEl.vue';
+import CheckIcon from '../components/Icons/CheckIcon';
+
 export default {
-  components: { ButtonEl },
+  components: { ButtonEl, CheckIcon },
   props: {
     content: {
       type: Object,
       require: true,
     },
+    inCart: Boolean,
+  },
+  data() {
+    return {
+      loading: false,
+    };
   },
   computed: {
     pictureIsSold() {
       return this.content.cost === 'sold';
+    },
+  },
+  methods: {
+    ...mapActions(['sendRequest']),
+    addToCart(id) {
+      this.loading = true;
+      this.sendRequest(id).finally(() => {
+        this.loading = false;
+      });
     },
   },
   filters: {
